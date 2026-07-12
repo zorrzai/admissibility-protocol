@@ -5,7 +5,7 @@
 Version 1.0 · July 2026 · Authored by ZORRZ Inc.
 Published under CC-BY 4.0 — free to use, cite, implement, and apply to any system, including the author's.
 
-**Standard (PDF):** [AP-1 v1.0](AP-1_Admissibility_Protocol_v1.0.pdf)
+**Standard (PDF):** [AP-1 v1.0](AP-1_Admissibility_Protocol_v1.1.pdf)
 **Citable record (DOI):** *to be added on publication*
 
 ---
@@ -41,7 +41,7 @@ Origination cannot be detected by inspecting outputs. A fabricated figure and a 
 | **D6** | Conflicting input | Does it flag contradictions — or silently reconcile them? |
 | **D7** | **Computation invocation** | **Was deterministic computation actually invoked — and was invocation guaranteed or discretionary?** |
 
-**D7 is not measured by any existing evaluation framework. It is the reason AP-1 exists.**
+D7 reframes an existing question. Tool-invocation has been studied as a capability — whether a model decides well about calling a tool (When2Call, WTU-Eval, ToolFailBench). AP-1 asks whether the decision is the model's to make at all. A high invocation rate is a tendency. A system in which invocation cannot be declined has a control.
 
 In a tool-augmented language model, the computation is deterministic — but *the decision to compute is not*. The model decides whether to invoke computation (probabilistic), writes the computation (probabilistic), the computation executes (deterministic), and the model transcribes the result (probabilistic). **Three of four links are probabilistic.**
 
