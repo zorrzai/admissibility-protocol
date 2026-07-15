@@ -112,6 +112,18 @@ Independent application of AP-1 by parties with no commercial relationship to ZO
 
 On 17 April 2026, the US Federal Reserve, OCC, and FDIC issued revised model-risk guidance (SR 26-2 / OCC Bulletin 2026-13 / FDIC FIL-15-2026), superseding the 2011 SR 11-7. It places **generative and agentic AI models outside the scope of the model-risk framework** ("novel and rapidly evolving") and leaves each institution to define, document, and defend its own governance — while examiners retain safety-and-soundness authority regardless of scope. AP-1 is a candidate measurement for exactly that self-defined obligation: it tests the property (admissibility of quantitative output) a generative or agentic system must demonstrate before an institution can rely on its figures. The standard's Appendix A maps each dimension to durable expectations shared across the US guidance, the UK PRA's SS1/23, and the EU AI Act high-risk provisions.
 
+## Related work
+
+AP-1 does not originate the ideas it rests on — the policy/control distinction, the deterministic-layer remedy for numerical fabrication, and admissibility as a property of a system all appear in prior and concurrent work. AP-1's contribution is their consolidation into a versioned, openly-licensed, falsifiable standard. This list is indicative, not exhaustive.
+
+- **Closest prior work** — Barbieri, Vargas & Ferraz, *Auditing AI Investment Recommendations as Executable Actions* (arXiv:2606.27570, 2026): audits an AI recommendation as an executable action against a deterministic baseline and finds the dominant failure is computation, not judgment. AP-1 differs in unit (a *figure*, across seven dimensions) and in making the invocation guarantee the headline claim.
+- **Admissibility as a model-external property** — *Admissibility Alignment* / Proof-Carrying Admissibility Compilation (arXiv:2601.01816).
+- **Policy vs control / enforcement at the tool call** — Microsoft Agent Governance Toolkit; solver-checked tool calls (arXiv:2603.20449); AgentSpec, VeriGuard, ProbGuard, TRAC. These *enforce*; AP-1 *measures* whether the control exists and is guaranteed.
+- **Tool-invocation as capability** — When2Call (NAACL 2025); AP-1 instead asks whether the decision is the model's to make at all.
+- **Adjacent** — deterministic inference (EigenAI), ISO/IEC 42001, NIST CAISI AI Agent Standards Initiative (2026), and the legal literature on admissibility of AI-generated evidence.
+
+**Specific to AP-1:** the D7 invocation guarantee (incl. instruction-removed, D7.1b) as the headline; the seven dimensions bundled with pre-registration/disclosure; and a stated falsification condition (§2.5).
+
 ## Reference implementation
 
 The scoring script, question-set template, raw-data schema, and disclosure checklist are being released in this repository, with the scoring script and supporting artifacts scheduled for publication by **24 July 2026**.
@@ -126,7 +138,7 @@ A standard its author would not submit to is not a standard.
 
 ## Changelog
 
-- **v1.2 — July 2026.** Hardening for institutional and standards-body scrutiny. Added: architecture-neutrality clause; the falsifiable claim and refutation invitation; governance and conflict-of-interest section; held-out-set construction methodology; scoring-objectivity, blind/independent-scoring, and author-scoring rules; comparator-disclosure and multi-model requirement; the burned-set clarification; and an indicative regulatory mapping updated for the 17 April 2026 revised US model-risk guidance (SR 26-2). Revised: the versioning scheme; the origination clause (from an axiom to a measured question); and the admissibility statement (from a claim of the standard to a claim the system under test must substantiate). **No dimension and no pass criterion was changed; D1–D7 and their thresholds are identical to v1.1.**
+- **v1.2 — July 2026.** Hardening for institutional and standards-body scrutiny. Added: architecture-neutrality clause; the falsifiable claim and refutation invitation; governance and conflict-of-interest section; held-out-set construction methodology; scoring-objectivity, blind/independent-scoring, and author-scoring rules; comparator-disclosure and multi-model requirement; the burned-set clarification; and an indicative regulatory mapping updated for the 17 April 2026 revised US model-risk guidance (SR 26-2). **A related-work / prior-art appendix was added.** Revised: the versioning scheme; the origination clause (from an axiom to a measured question); and the admissibility statement (from a claim of the standard to a claim the system under test must substantiate). **No dimension and no pass criterion was changed; D1–D7 and their thresholds are identical to v1.1.**
 - **v1.1 — July 2026.** D7 revised to cite prior work on tool-invocation evaluation (When2Call, NAACL 2025) and to clarify the distinction between capability measurement and control.
 - **v1.0 — July 2026.** Initial publication.
 
@@ -139,5 +151,3 @@ The concept DOI above always resolves to the latest version. A claim of complian
 ## Licence
 
 CC-BY 4.0 — free to use, cite, implement, and apply to any system, including the author's.
-
-
