@@ -89,6 +89,8 @@ anything beyond the permitted arithmetic, or any other security issue in this
 harness, please open a private security advisory on this repository (or contact
 the maintainer) rather than a public issue. We will confirm, fix, and credit.
 
+**Pre-commit hook:** To prevent accidental credential exposure, install the included `gitleaks` guard by running `cp hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit`.
+
 ---
 
 *This document accompanies the sanitised `harness.py`. The unsanitised internal

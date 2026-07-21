@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# ─────────────────────────────────────────────────────────────────────
+# AP-1 repo pre-commit secret guard
+#
+# Install (from repo root):
+#     cp pre-commit .git/hooks/pre-commit
+#     chmod +x .git/hooks/pre-commit
+#
+# Blocks a commit if gitleaks finds a secret in the staged changes,
+# or (fallback, if gitleaks isn't installed) if a few high-signal
+# patterns appear in staged files.
+# ─────────────────────────────────────────────────────────────────────
+set -euo pipefail
+
+RED='\033[0;31m'; YEL='\033[0;33m'; GRN='\033[0;32m'; NC='\033[0m'
+
+# 1) Prefer gitleaks (protects staged changes only).
+if command -v gitleaks >/dev/null 2>&1; then
+  if gitleaks protect --staged --redact --config .gitleaks.toml; then
+    echo -e "${GRN}✓ gitleaks: no secrets in staged changes${NC}"
+    exit 0
+  else
+    echo -e "${RED}✗ gitleaks blocked this commit — a secret was detected in staged changes.${NC}"
+    echo -e "${YEL}  Remove the secret (use an env var), then re-stage. Do NOT --no-verify.${NC}"
+    exit 1
+  fi
+fi
+
+# 2) Fallback: lightweight grep guard if gitleaks isn't installed.
+echo -e "${YEL}gitleaks not installed — using fallback grep guard. Install gitleaks for full coverage.${NC}"
+STAGED=$(git diff --cached --name-only --diff-filter=ACM)
+[ -z "$STAGED" ] && exit 0
+
+PATTERNS=(
+  'EVAL_BYPASS_SECRET[[:space:]]*[:=][[:space:]]*["'"'"']?[A-Za-z0-9_\-]{8,}'
+  'x-eval-bypass'
+  'eyJ[A-Za-z0-9_\-]{10,}\.[A-Za-z0-9_\-]{10,}\.[A-Za-z0-9_\-]{10,}'   # JWT
+  'sk-[A-Za-z0-9]{20,}'                                                 # OpenAI-style
+  'AIza[0-9A-Za-z_\-]{30,}'                                             # Google API key
+  '[Bb]earer[[:space:]]+[A-Za-z0-9_\-\.=]{20,}'
+)
+FOUND=0
+for f in $STAGED; do
+  [ -f "$f" ] || continue
+  case "$f" in SECURITY.md|.gitleaks.toml|README.md) continue;; esac   # documented on purpose
+  for p in "${PATTERNS[@]}"; do
+    if git show ":$f" | grep -Eq "$p"; then
+      echo -e "${RED}✗ potential secret in staged file: $f  (pattern: $p)${NC}"
+      FOUND=1
+    fi
+  done
+done
+
+if [ "$FOUND" -ne 0 ]; then
+  echo -e "${RED}Commit blocked. Replace the secret with an environment variable and re-stage.${NC}"
+  exit 1
+fi
+echo -e "${GRN}✓ fallback guard: no obvious secrets in staged changes${NC}"
+exit 0

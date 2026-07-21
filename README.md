@@ -100,8 +100,8 @@ This is a **case study, not a proof over all architectures** (single run, small 
 
 - [`AP1_FROZEN_20260716_012503.jsonl`](./AP1_FROZEN_20260716_012503.jsonl) — the complete raw log: every prompt, full response, tool call, and finish reason, all four arms
 - [`pre_registration.json`](./pre_registration.json) — the immutable pre-registration block (hashes, commit, model IDs, timestamps)
-- [`harness.py`](./harness.py) — the four-arm runner and five-outcome classifier (secrets redacted; see diff)
-- [`harness_sanitization.diff`](./harness_sanitization.diff) — proof the public harness differs from the frozen original **only by secret redaction** (six lines, no logic changed)
+- [`harness.py`](./harness.py) — the four-arm runner and five-outcome classifier, as published
+- [`SECURITY.md`](./SECURITY.md) — precisely how the published harness differs from the internal harness that produced the run: two documented changes, neither of which alters any score, prompt, model setting, or classification rule
 - [`_eval_profiles_v6.json`](./_eval_profiles_v6.json) — the five synthetic Plaid Sandbox fixtures
 - [`AP-1_Sealed_Evaluation_Set_v2_FINAL.md`](./AP-1_Sealed_Evaluation_Set_v2_FINAL.md) — the (now burned) question set and answer key
 
