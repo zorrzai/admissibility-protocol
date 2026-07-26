@@ -1,5 +1,7 @@
 # The Admissibility Protocol (AP-1)
 
+**Erratum (26 July 2026):** eight defect classes in the V1 evaluation — automated scoring, sampling disclosure, arm parity, answer-key reproducibility, the instruction-removal condition, and invocation observability — are recorded in [ERRATUM_V1.md](ERRATUM_V1.md). Several published findings are withdrawn, including all Section A outcome counts and the D7.1b result. The frozen artifact is unmodified.
+
 **An open standard for evaluating numerical admissibility in AI systems.**
 
 Version 1.2 · July 2026 · Authored by ZORRZ Inc.
