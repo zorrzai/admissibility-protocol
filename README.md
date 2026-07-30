@@ -4,7 +4,7 @@
 
 **An open standard for evaluating numerical admissibility in AI systems.**
 
-Version 1.2 · July 2026 · Authored by ZORRZ Inc.
+Version 1.2 · July 2026 · Authored by ZORRZ Financial Inc.
 Published under CC-BY 4.0 — free to use, cite, implement, and apply to any system, including the author's.
 
 - **Standard — Markdown (mobile-friendly):** [AP-1 v1.2](./AP-1_Admissibility_Protocol_v1.2.md)
@@ -168,9 +168,18 @@ A model-agnostic, open-source test kit — allowing anyone to run AP-1 against t
 
 This protocol makes no exception for its author. ZORRZ's own systems are evaluated under AP-1 and the results published in full, **including failures** (see *Reference evaluation* above). A standard its author would not submit to is not a standard.
 
+## Public comment
+
+AP-1 amendments carry a public comment period before adoption (§10.5).
+Comments on a proposed amendment should be filed as an [Issue](https://github.com/zorrzai/admissibility-protocol/issues/new?template=comment-on-amendment.md)
+using the amendment-comment template, which captures the clause referenced
+and consent to attribution. [Discussions](https://github.com/zorrzai/admissibility-protocol/discussions)
+are open for general questions about the standard.
+Every substantive comment is dispositioned in public before the amendment is adopted.
+
 ## Citation
 
-> Rupp, M. (2026). *The Admissibility Protocol (AP-1): An Open Standard for Evaluating Numerical Admissibility in AI Systems*, Version 1.2. ZORRZ Inc. DOI: [10.5281/zenodo.21324954](https://doi.org/10.5281/zenodo.21324954)
+> Rupp, M. (2026). *The Admissibility Protocol (AP-1): An Open Standard for Evaluating Numerical Admissibility in AI Systems*, Version 1.2. ZORRZ Financial Inc. DOI: [10.5281/zenodo.21324954](https://doi.org/10.5281/zenodo.21324954)
 
 The concept DOI above always resolves to the latest version. A claim of compliance should cite the specific version evaluated against (e.g. "AP-1 v1.2").
 

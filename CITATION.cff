@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: "The Admissibility Protocol (AP-1)"
+message: "If you use or reference this protocol, please cite it using the metadata below."
+type: software
+authors:
+  - family-names: "Rupp"
+    given-names: "Marcus"
+    affiliation: "ZORRZ Financial Inc."
+license: CC-BY-4.0
+doi: "10.5281/zenodo.21324954"
+url: "https://github.com/zorrzai/admissibility-protocol"
+repository-code: "https://github.com/zorrzai/admissibility-protocol"
+version: "1.2"
+date-released: "2026-07-16"

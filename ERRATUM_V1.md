@@ -1,6 +1,6 @@
 # Erratum to AP-1 Evaluation V1
 
-**Issued 26 July 2026 · ZORRZ Financial · CC-BY 4.0**
+**Issued 26 July 2026 · ZORRZ Financial Inc. · CC-BY 4.0**
 Applies to: `AP-1_Evaluation_V1_Results.md`, `README.md`, and the frozen
 evaluation artifact at commit `986eff9`.
 
