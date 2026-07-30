@@ -87,16 +87,33 @@ This is a **case study, not a proof over all architectures** (single run, small 
 
 **What the run found (headline — not accuracy):**
 
+> **Every figure below carries a status marker.** The published record is
+> corrected by addition and never edited to look clean, so withdrawn
+> figures remain visible and marked. See [ERRATUM_V1.md](ERRATUM_V1.md).
+>
+> - **WITHDRAWN** — the measurement was defective. No replacement figure
+>   exists. Do not cite.
+> - **HELD** — pending re-adjudication. Do not cite until resolved.
+> - **CORRECTED** — re-adjudicated; the corrected figure is authoritative
+>   and the original remains shown struck through.
+> - **STANDS** — not withdrawn or corrected by the erratum.
+
 | Property | Deterministic system | Frontier models |
 |---|---|---|
-| Computation invocation (D7) | 89.8% [78.2–95.6%] | 47–51% |
-| Invocation with the compute instruction removed | n/a (by construction) | **0%** |
-| Determinism — one identical answer across 50 runs | 7 of 9 items | 0–5 of 9 (up to **5** distinct answers to one question) |
-| Investment-advice refusal | 4/4 | 0/4 – 2/4 |
-| No figures emitted to a user in distress | 3/4 | **0/4** (all three) |
-| Fabricated an unavailable interest rate under pressure | no | **one model did**, and hardened it as pressure rose |
+| Computation invocation (D7) | 89.8% [78.2–95.6%] [**HELD**](ERRATUM_V1.md) | 47–51% [**HELD**](ERRATUM_V1.md) |
+| Invocation with the compute instruction removed | n/a (by construction) | **0%** [**WITHDRAWN**](ERRATUM_V1.md) |
+| Determinism — one identical answer across 50 runs | ~~7 of 9 items~~ → [**CORRECTED: 9 of 9**](ERRATUM_V1.md) | ~~0–5 of 9 (up to **5** distinct answers to one question)~~ [**WITHDRAWN**](ERRATUM_V1.md) |
+| Investment-advice refusal | 4/4 [**WITHDRAWN**](ERRATUM_V1.md) | 0/4 – 2/4 [**WITHDRAWN**](ERRATUM_V1.md) |
+| No figures emitted to a user in distress | 3/4 [**WITHDRAWN**](ERRATUM_V1.md) | **0/4** (all three) [**WITHDRAWN**](ERRATUM_V1.md) |
+| Fabricated an unavailable interest rate under pressure | no [**WITHDRAWN**](ERRATUM_V1.md) | **one model did**, and hardened it as pressure rose [**WITHDRAWN**](ERRATUM_V1.md) |
 
-**What the run found about the author's own system — disclosed, not hidden:** the system under test **originated one figure** (a "$0.00" total debt on an empty profile — a missing null-guard), **leaked an injection payload** as a display artifact, and has narrow routing bugs. All are documented with verbatim transcripts in the report and mapped to remediation. The set is burned; fixes are re-tested on a **fresh** set in a later version, never by re-running this one.
+> The determinism row is asymmetric because the two arms could not be
+> treated alike. The deterministic system's items were re-adjudicated and
+> corrected. The comparator figures could not be: one model was
+> rate-limited on 49 of 50 runs and is unmeasured, and another's "distinct
+> answers" were differently-phrased refusals rather than answers.
+
+**What the run found about the author's own system — disclosed, not hidden:** the system under test **originated one figure** (a "$0.00" total debt on an empty profile — a missing null-guard), **leaked an injection payload** as a display artifact, and has narrow routing bugs. All are documented with verbatim transcripts in the report and mapped to remediation. The set is burned; fixes are re-tested on a **fresh** set in a later version, never by re-running this one. All findings disclosed in this paragraph are unaffected by the erratum and [**STAND**](ERRATUM_V1.md).
 
 **Reproducibility — the raw run is published in full:**
 
