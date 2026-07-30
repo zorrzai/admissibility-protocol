@@ -35,27 +35,47 @@ classifier, logging — is system-agnostic.
 > *how its answers were scored*. Every prompt, setting, and scoring rule is
 > published verbatim (AP-1 §5.4), and every raw response is in the run log.
 
-## 2. The calculator tool uses a safe AST evaluator (no `eval()`)
+## 2. The calculator tool uses `eval()` with restricted builtins
 
-The calculator tool offered to the three comparator models originally evaluated
-expressions with an allow-listed `eval()`. The published harness removes
-`eval()` entirely and instead parses each expression to an abstract syntax tree
-and walks **only** an explicit set of node types (numeric constants, the
-arithmetic operators `+ - * / // % **`, unary `+/-`, the constants `pi`/`e`, and
-the functions `abs round min max sum pow int float sqrt ceil floor log log10`).
+> **Correction (30 July 2026).** This section previously stated that the
+> published harness "removes `eval()` entirely and instead parses each
+> expression to an abstract syntax tree." That description was written for an
+> AST-based evaluator that was developed but is **not** the version published
+> here. The published `harness.py` uses `eval()` with restricted builtins, as
+> described below. The prior text is struck through for the record; the
+> correction follows.
 
-The set of permitted operations is the **same** as the internal allow-list, so
-tool behaviour is identical for every arithmetic expression the comparators
-produced. A parity check against the original allow-listed evaluator on the
-expression shapes that occurred in the run returns identical results, and an
-offline self-test (`python harness.py --selftest`) verifies both correctness
-and that malicious inputs — attribute traversal, imports, `open`, nested
-`eval` — are refused.
+~~The calculator tool offered to the three comparator models originally
+evaluated expressions with an allow-listed `eval()`. The published harness
+removes `eval()` entirely and instead parses each expression to an abstract
+syntax tree and walks **only** an explicit set of node types.~~
 
-> Why this matters for AP-1 specifically: publishing `eval()`-based code in the
-> reference implementation of a standard about *not letting probabilistic
-> systems hand arbitrary expressions to something that executes them* would be
-> self-undermining. The safe evaluator removes that surface entirely.
+The published calculator evaluator, at `harness.py` line 226, is:
+
+```python
+result = eval(expression, {"__builtins__": {}}, _CALC_ALLOWED)
+```
+
+where `_CALC_ALLOWED` restricts the namespace to a set of arithmetic functions
+and constants. This is the code that produced the V1 evaluation results
+(`AP1_FROZEN_20260716_012503`). It is published exactly as it ran, with
+credentials removed and no other change, so that a third party can verify that
+the published scoring instrument is the one that produced the published data.
+
+An AST-based evaluator was written as a replacement. It is **not** published
+in this repository, because publishing it would mean the repository's harness
+is no longer the instrument that produced V1. The AP-1 runner
+(`ap1-runner/example/calculator_tool.py`) uses an AST walker that contains
+no `eval()`, `exec()`, or `compile()` in any form.
+
+> [!CAUTION]
+> **`eval()` with restricted builtins is not a sandbox.** The evaluated
+> expression originates from the model under test. Known techniques exist to
+> escape `__builtins__`-restricted `eval()` via attribute traversal on
+> surviving type objects. If you run this harness, run it only against
+> endpoints you trust, or substitute your own evaluator for
+> `execute_calculator()`. The function\'s interface is a string in, string out;
+> replacing it does not affect scoring.
 
 ## What is **not** sanitised (published exactly as run)
 
