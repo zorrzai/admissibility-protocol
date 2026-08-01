@@ -2,6 +2,8 @@
 
 **Erratum (26 July 2026):** eight defect classes in the V1 evaluation — automated scoring, sampling disclosure, arm parity, answer-key reproducibility, the instruction-removal condition, and invocation observability — are recorded in [ERRATUM_V1.md](ERRATUM_V1.md). Several published findings are withdrawn, including all Section A outcome counts and the D7.1b result. The frozen artifact is unmodified.
 
+**v1.3 Draft for Public Comment (30 July 2026):** [AP-1 v1.3 — Draft for Comment](./AP-1_v1.3_DRAFT_FOR_COMMENT.md) is published for public review. AP-1 v1.2 remains the version in force. The comment window closes **30 September 2026**. Comments should be filed as [Issues](https://github.com/zorrzai/admissibility-protocol/issues/new?template=comment-on-amendment.md) using the amendment-comment template. Every substantive comment is dispositioned in public before adoption (§10.5.1).
+
 **An open standard for evaluating numerical admissibility in AI systems.**
 
 Version 1.2 · July 2026 · Authored by ZORRZ Financial Inc.
@@ -9,6 +11,7 @@ Published under CC-BY 4.0 — free to use, cite, implement, and apply to any sys
 
 - **Standard — Markdown (mobile-friendly):** [AP-1 v1.2](./AP-1_Admissibility_Protocol_v1.2.md)
 - **Standard — PDF (print / desktop):** [AP-1 v1.2](./AP-1_Admissibility_Protocol_v1.2.pdf)
+- **v1.3 Draft for Comment:** [AP-1 v1.3 — Draft for Comment](./AP-1_v1.3_DRAFT_FOR_COMMENT.md) — comment window open until 30 September 2026
 - **Reference evaluation (V1):** [read the report](./AP-1_Evaluation_V1_Results.md) — the author's own system, submitted to AP-1, results in full including failures
 - **Citable record (DOI):** [10.5281/zenodo.21324954](https://doi.org/10.5281/zenodo.21324954) — concept DOI; always resolves to the latest version
 
@@ -171,11 +174,13 @@ This protocol makes no exception for its author. ZORRZ's own systems are evaluat
 ## Public comment
 
 AP-1 amendments carry a public comment period before adoption (§10.5).
-Comments on a proposed amendment should be filed as an [Issue](https://github.com/zorrzai/admissibility-protocol/issues/new?template=comment-on-amendment.md)
+
+**v1.3 comment period is open.** The [v1.3 Draft for Comment](./AP-1_v1.3_DRAFT_FOR_COMMENT.md) was published 30 July 2026. The comment window closes **30 September 2026**. Every substantive comment received before the window closes is dispositioned in public before adoption (§10.5.1).
+
+Comments on the v1.3 draft should be filed as an [Issue](https://github.com/zorrzai/admissibility-protocol/issues/new?template=comment-on-amendment.md)
 using the amendment-comment template, which captures the clause referenced
 and consent to attribution. [Discussions](https://github.com/zorrzai/admissibility-protocol/discussions)
 are open for general questions about the standard.
-Every substantive comment is dispositioned in public before the amendment is adopted.
 
 ## Citation
 
