@@ -28,6 +28,8 @@ A figure is **admissible** if, and only if, it is:
 - **Reproducible** — identical on repeat execution given identical inputs
 - **Refusable** — withheld when the data required to compute it is absent or contradictory
 
+The first condition names an architecture rather than a property, which contradicts the standard's own architecture-neutrality clause — see C-11 in the publisher's comment. v1.4 restates it in terms of the property: a figure is computed where it is the output of a deterministic operation over identified inputs, whatever produced that operation.
+
 A figure failing any of these conditions is **inadmissible**, irrespective of whether it happens to be correct. Admissibility is a property of the **system that produced the figure**, not of the figure itself — it cannot be established by inspecting outputs.
 
 ## The failure it tests for
@@ -44,11 +46,15 @@ AP-1 rests on a claim that can be proven false. It is stated as a hypothesis, wi
 
 This is a hypothesis, not a definition. It is **falsified by a single counterexample**: any system that admits a generative model into the decision-to-compute and nonetheless achieves, on a held-out set it has not seen — 100% deterministic-computation invocation on computable questions (including with any facilitating instruction removed), exact reproducibility across repeated execution, and zero origination across refusal-pressure and adversarial conditions — has refuted the claim, and AP-1 records that refutation unaltered.
 
+The defeat condition as stated in v1.2 cannot be satisfied by the standard's own machinery — see C-12 in the publisher's comment. v1.3 restates it per link, and v1.4 restates it as an evidentiary threshold achievable in principle.
+
 **The author invites any party — expressly including the builders of frontier generative models — to submit such a system.** A standard that cannot be falsified is not a standard; this one names its own defeat condition.
 
 ## The seven dimensions
 
 A system is evaluated across all seven. A system may not claim AP-1 compliance having omitted any dimension.
+
+AP-1 defines no pass criterion for any dimension. It produces a profile; adequacy is determined by the party relying on the figure. This is restated as a disclosure requirement in v1.4 — see C-13.
 
 |        | Dimension              | Tests                                                                                            |
 | ------ | ---------------------- | ------------------------------------------------------------------------------------------------ |
@@ -151,7 +157,7 @@ Where an evaluation claims that a *class* of system fails, it must test **multip
 
 AP-1 is authored by ZORRZ, a commercial entity that builds systems designed to satisfy it. **This is a conflict of interest and is disclosed as one.** A standard authored by an interested party is credible only if it is reproducible without the author, falsifiable against the author's own product, and governed in the open. AP-1 is constructed to be all three:
 
-- **Reproducible without the author.** The measuring instrument, scoring rules, disclosure checklist, and held-out-set construction methodology are published. Any party may run AP-1 against any system — including ZORRZ's — without ZORRZ's involvement, cooperation, or consent.
+- **Reproducible without the author.** The scoring rules, the conformance requirements, and the held-out-set construction methodology are published. The reference runner follows on independent review. Any party may run AP-1 against any system — including ZORRZ's — without ZORRZ's involvement, cooperation, or consent.
 - **No certification authority.** AP-1 does not certify, license, accredit, or endorse any system. It produces a measurement. There is no registry, no seal, and no fee.
 - **Open revision.** Proposed amendments are published openly with a public comment period; the protocol is not revised silently, retroactively, or to accommodate any single system's result.
 
@@ -165,7 +171,11 @@ On 17 April 2026, the US Federal Reserve, OCC, and FDIC issued revised model-ris
 
 ## Reference implementation
 
-A model-agnostic, open-source test kit — allowing anyone to run AP-1 against their own model or agent — is in preparation and will be released in this repository. The reference implementation is the **measuring instrument**, not a system under test; it permits any party to evaluate any system, including the author's.
+A model-agnostic reference runner exists and is in private review before publication. It executes AP-1 against a deployed system, contains no language model in any path, computes no expected values of its own, and declares rather than skips any dimension it cannot measure.
+
+It is the measuring instrument, not a system under test. On release it permits any party to evaluate any system, including the author's.
+
+Publication follows independent review. AP-1 §13.6 and §13.8 require independence the author cannot supply to itself, and the runner has not yet been executed by a party unconnected to ZORRZ.
 
 ## Applicability to the author
 
