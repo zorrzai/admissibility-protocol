@@ -182,6 +182,18 @@ using the amendment-comment template, which captures the clause referenced
 and consent to attribution. [Discussions](https://github.com/zorrzai/admissibility-protocol/discussions)
 are open for general questions about the standard.
 
+### Comment record
+
+[Publisher's comment](AP-1_v1.3_PUBLISHERS_COMMENT.md) — sixteen defects
+identified in v1.3 after publication, by applying the standard, by
+reviewing related work, and by adversarial review.
+
+[Disposition record](DISPOSITION_RECORD_v1.3.md) — how each is
+dispositioned, opened at the start of the window rather than at the end so
+that a party considering a comment can see how earlier ones were handled.
+All sixteen are resolved in v1.4; none is deferred. Comments from other
+parties are added as they arrive and dispositioned before adoption.
+
 ## Citation
 
 > Rupp, M. (2026). *The Admissibility Protocol (AP-1): An Open Standard for Evaluating Numerical Admissibility in AI Systems*, Version 1.2. ZORRZ Financial Inc. DOI: [10.5281/zenodo.21324954](https://doi.org/10.5281/zenodo.21324954)
