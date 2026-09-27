@@ -259,3 +259,97 @@ That these are the first entries in v1.3's comment record is intentional. A stan
 
 *Filed 5 August 2026 · Comment window closes 30 September 2026 · Resolution in AP-1 v1.4*
 *ZORRZ Financial Inc. · mrupp@zorrz.com*
+
+---
+
+# Second filing — 27 September 2026
+
+Six further comments, filed within the window.
+
+---
+
+## C-17 · "Pre-registered" describes a self-reported seal
+
+**Clause.** §5.3; §11.7.
+
+**Defect.** §5.3 requires confirmation that the protocol was "pre-registered — hashed and timestamped before execution", and §11.7 is titled "Freeze and pre-registration". In the reference instrument both the hash and the timestamp are produced by the harness; no party independent of the operator attests them. In research practice, pre-registration denotes a record held by an independent party, so that the timestamp is not the investigator's own.
+
+**Effect.** Readers credit the seal with independence it does not have. By the reasoning D7.7 applies to invocation evidence, a harness-generated timestamp is self-reported, the lowest evidence class. The reference evaluation V1 describes itself as pre-registered on this basis.
+
+**Proposed resolution for v1.4.** In §5.3, replace "pre-registered" with "sealed before execution". Retitle §11.7 "Freeze and seal". State that a seal's timestamp is self-reported unless independently anchored. Where an operator registers the protocol with an independent registry before execution, report that separately; it may then be described as pre-registration.
+
+---
+
+## C-18 · A universal negative, contradicted two lines later
+
+**Clause.** D7, "The dimension no existing evaluation measures" (v1.3 line 327).
+
+**Defect.** An unbounded claim the publisher cannot verify. The same passage goes on to cite When2Call and a broader benchmark literature on tool-use decisions, and then states the actual distinction precisely: prior work asks whether the model decides well; AP-1 asks whether the decision is the model's to make at all.
+
+**Effect.** The heading is contradicted by the paragraph beneath it, and adds nothing the paragraph doesn't already say better.
+
+**Proposed resolution for v1.4.** Replace the heading with the distinction the passage already draws, or bound it: "a dimension the evaluations reviewed for this standard do not measure".
+
+---
+
+## C-19 · §9 describes the reference runner as unfinished, and omits a disclosure §13.11 requires of others
+
+**Clause.** §9 (v1.3 line 587).
+
+**Defect.** Two, in one sentence. First, it states that the reference runner "is under construction". The runner is published. The section that carries v1.3's correction of v1.2's out-of-date release status therefore contains an out-of-date status of its own. Second, "contains no language model in any path" is true of the runner's execution, but placed beside "computes no expected values of its own" it invites the inference that no language model was involved in producing the fixtures or expected values. The reference instrument's own README states that its fixtures and expected values were authored by an AI coding agent and are not derived from an independent source.
+
+**Effect.** A reader is misinformed about the runner's status, and is not told that the instrument, its fixtures and its expected values share an author. §13.11 requires every evaluation to disclose AI assistance in authoring its fixtures and expected values; the standard's own description of its reference instrument does not.
+
+**Proposed resolution for v1.4.** Replace the status with the runner's published location and release identifier. Scope the containment claim to execution — "no language model executes during evaluation" — and add that the reference fixtures and expected values were authored with an AI coding agent and are not derived from an independent source, consistent with §13.11.
+
+---
+
+## C-20 · §2.5 relies on a result the publisher has withdrawn
+
+**Clause.** §2.5, status note.
+
+**Defect.** The note gives, as evidence that the falsification condition has not fired, that invocation collapsed under instruction removal. That is the V1 result withdrawn in ERRATUM_V1 §8, because the V1 harness removed the tool declaration together with the instruction. D7.8 of v1.3 provides that a condition removing tool availability alongside the instruction shall not be reported as an invocation result. The note also states that the comparator systems met the reproducibility component, which rests in part on determinism measurements ERRATUM_V1 withdraws.
+
+**Effect.** §2.5 rests on a result its own D7.8 prohibits reporting and its publisher has withdrawn.
+
+**Proposed resolution for v1.4.** Remove the withdrawn result from the note, and qualify the reproducibility statement to what the unwithdrawn measurements support. State that the condition has not yet been tested by a conformant evaluation. Related to C-12.
+
+---
+
+## C-21 · Two different documents are both deposited as v1.2
+
+**Clause.** Publication record for v1.2.
+
+**Defect.** Two Zenodo deposits are labelled v1.2 and dated the same day: 10.5281/zenodo.21369899 and, about ninety minutes later, 10.5281/zenodo.21371684. They differ. The second corrects the first's statement that the reference implementation and related artifacts "are published" to "being released … scheduled for publication by 24 July 2026", and adds Appendix B. v1.3's §9 status correction quotes the second deposit's wording. Published citations, including the publisher's own, have pointed to the first.
+
+**Effect.** A reader following the cited v1.2 does not find the text v1.3 corrects.
+
+**Proposed resolution for v1.4.** Treat 10.5281/zenodo.21371684 as the v1.2 of record, add a note to the first deposit's record identifying the second, and correct all citations.
+
+---
+
+## C-22 · Three outcome schemes for adjacent judgements, with no crosswalk
+
+**Clause.** D3; D7.2(a); §6.8.
+
+**Defect.** D3, D7.2(a) and §6.8 each define a scheme of outcomes for closely related judgements about a response. Beyond a partial cross-reference in §6.8, no clause relates them, so an implementer scoring a transcript has nothing telling them which scheme governs which judgement, or how an outcome in one corresponds to an outcome in another. Identified in the course of GH-3.
+
+**Effect.** Two conformant implementations can classify the same transcript under different schemes and report results that cannot be compared.
+
+**Proposed resolution for v1.4.** Add a normative crosswalk table relating the three schemes, stating for each judgement which scheme governs and how outcomes correspond.
+
+---
+
+## Note on origin — second filing
+
+C-18, C-19 and C-20 were identified during adversarial review of the standard and the reference instrument in August 2026, and are filed here within the window.
+
+C-17 and C-21 were identified in September 2026 by checking the publisher's own public record — its website, its citations and its Zenodo deposits — against the text of the standard.
+
+C-22 arose from the glossary contributed under GH-3.
+
+---
+
+*Filed 27 September 2026 · Comment window closes 30 September 2026 · Resolution in AP-1 v1.4*
+*ZORRZ Financial Inc. · mrupp@zorrz.com*
+
