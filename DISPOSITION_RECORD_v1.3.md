@@ -281,7 +281,100 @@ The §12 changelog states the registered legal name and does not distinguish whe
 
 ## Comments received from other parties
 
-*None at the time of opening. Entries will be added here with the same fields and dispositioned before adoption.*
+*Dispositioned 27 September 2026.*
+
+Four comments were received during the window, all filed as issues on the public repository by Steven Lewis (GitHub: bannigan), who consented to be named in this record. Steven Lewis is a co-CTO of Certanum Technologies Inc., which develops commercial products intended to be consistent with AP-1. His comments are dispositioned on the same terms as any other and carry no privilege.
+
+---
+
+## GH-2 · Requirements hardening from v1.2 — Steven Lewis
+
+Eighteen proposed requirements, written as shall-statements, most derived from the defects recorded in ERRATUM_V1.
+
+**A correction first.** The publisher's reply of 18 September stated that three of these — HARD-004, HARD-011 and HARD-017 — were absent from v1.3, and accepted them as new. That was wrong. v1.3 §13.4 already requires HARD-004 almost word for word, §13.11 already requires HARD-011, and D6 already carries a five-class taxonomy with a minimum sample, leaving only the adequacy of that minimum open. The error is corrected here rather than left to stand.
+
+The contribution was made against v1.2, which has no §13, and arrives at the same requirements v1.3 introduced. Sixteen of the eighteen are fully addressed in v1.3; two are addressed in part, and are dispositioned below. Each is mapped to the clause that addresses it, so the standard can be held to them.
+
+| ID | Disposition | Where addressed / v1.4 action |
+|---|---|---|
+| HARD-001 | **ACCEPTED** — in v1.3 | §13.1: transcript-level human adjudication on every dimension. |
+| HARD-002 | **ACCEPTED** — in v1.3 | §6.8 and §13.2: empty, errored or rate-limited responses are unmeasured, never counted as answers. |
+| HARD-003 | **ACCEPTED** — in v1.3 | §5.11 and §13.3: sampling parameters reported per arm, including omissions and ignored parameters. |
+| HARD-004 | **ACCEPTED** — in v1.3 | §13.4: fixtures static and fully specified; every expected value reproducible from the published fixture alone. |
+| HARD-005 | **ACCEPTED** — in v1.3 | §11.9 and §13.5: expected values constructed by deterministic code from the fixture, with the code published. |
+| HARD-006 | **DEFERRED** | §13.6 requires the expected values to be implemented by a party without sight of the system under test's computation code — independence of people. HARD-006 asks for independence of the code itself, which §13.6 does not secure: an implementer without sight of the system can still reuse a component it shares. The reference instrument's own record shows why this matters — its calculator and its scorer shared a parser and agreed on the same wrong answer. Proposed testable form: *expected-value code shall not share a parser, evaluator or arithmetic library with the system-under-test computation, and any shared component shall be declared.* **The contributor's intended scope is sought before adoption in v1.4.** |
+| HARD-007 | **ACCEPTED** — in v1.3 | §5.10 and §13.7: an item an arm cannot derive from its data is declared void for that arm and not scored. |
+| HARD-008 | **ACCEPTED** — in v1.3 | §6.6, §6.6.1 and §13.8: at least two independent scorers, a published agreement statistic and the full disagreement set. |
+| HARD-009 | **ACCEPTED** — in v1.3 | D7.8 and §13.9: each perturbation varies one quantity, with what is held constant specified and reported. |
+| HARD-010 | **ACCEPTED** — in v1.3 | §13.10: a defect in an automated scorer places every dimension it produced under presumption until re-adjudicated. |
+| HARD-011 | **ACCEPTED** — in v1.3 | §13.11: disclosure of the provenance of harness, fixtures and expected values, including AI assistance and independence relationships. |
+| HARD-012 | **ACCEPTED** — in v1.3 | §0.4 and §13.12: frozen artifacts never modified; corrections issued as errata alongside them. |
+| HARD-013 | **ACCEPTED** — in v1.3 | D7.2(a): every numeric operand traceable, resolved in a stated order, otherwise classed as originated. |
+| HARD-014 | **ACCEPTED** — in v1.3 | D7.7: invocation evidence a structural per-request signal, graded into three evidence classes. |
+| HARD-015 | **ACCEPTED** — in v1.3 | D7.5: every invocation figure reported with n and an exact one-sided 95% upper bound. The bound's formula is addressed by C-1, and its i.i.d. assumption by GH-5. |
+| HARD-016 | **ACCEPTED** — in v1.3 | §6.3(b) and §1.5.2: a by-construction claim requires an architectural argument naming the mechanism and a stated threat model. |
+| HARD-017 | **ACCEPTED** | D6 carries a five-class taxonomy and a minimum of 10 items across it, reported per class — two items per class, which cannot support a claim made for a class. **v1.4 sets the minimum per class rather than across the taxonomy, so that a result reported for a class rests on enough items to support it.** |
+| HARD-018 | **ACCEPTED** — in v1.3 | §6.9 and §1.5.1: a declared rounding policy and a single quantisation point; values computed at full precision and quantised once. |
+
+---
+
+## GH-3 · A glossary of terms — Steven Lewis
+
+**ACCEPTED WITH VARIATION.**
+
+Terms are defined inline across §1, §2.1, D2.1, D3, D6, D7.2, D7.7, §6.8 and §11.9, with no consolidated glossary.
+
+**Proposed:** a glossary of concise, jargon-free definitions, starting from the contributed set.
+
+**Adopted instead:** a glossary built from the contributed file, with three variations. First, a glossary creates a second place a term is defined, so §0 states which governs: where a term is defined both in a clause and in the glossary, the clause governs; the glossary is indicative and carries no normative force; and a conflict between them is a defect to be recorded, not resolved by preferring one. Second, terms with a specific measured meaning — originated, grounded, admissible, refusable — are marked as distinct from ordinary usage, and deprecated terms carry a forward mapping. Third, "question" is added, as defined under GH-4.
+
+The contribution also surfaced a defect rather than a documentation gap: D3, D7.2(a) and §6.8 define three outcome schemes for adjacent judgements with no crosswalk between them. That is recorded separately as C-22. Any term the consolidation shows to be defined twice, with drift between the definitions, is likewise recorded rather than quietly reconciled.
+
+**v1.4 carries a glossary attributed as contributed by Steven Lewis and adopted with modification, together with the §0 precedence rule.**
+
+---
+
+## GH-4 · Definition of a question — Steven Lewis
+
+**ACCEPTED.**
+
+"Question" does structural work in §5.8, §11.1, §11.2 and D2, and is nowhere defined, so what makes two questions distinct is left to inference.
+
+**Proposed:** define "question" for AP-1.
+
+**Adopted for v1.4:**
+
+*Question.* A single prompt, together with the source data supplied with it, having exactly one verifiable correct response under the declared derivation — or, where labelled non-computable, having no response the supplied data can support. A question is the unit the fixture counts, the unit the pressure ladder escalates against, and the unit a set burns.
+
+*Identity.* Two questions are the same question if they would be answered by the same derivation over the same source values, whatever the wording. They are different if either the derivation or the source values differ.
+
+Both edges are deliberate. Rephrasing an item does not make it new; otherwise §5.8's burn rule could be defeated by paraphrase and a published set reused indefinitely. Changing a single operand does make it new, even under identical wording, because the derivation resolves over different values.
+
+*Consequences.* Under D2, repeat execution requires the same question — same derivation, same source values, same prompt — and the 10 × 50 minimum is ten distinct derivations, not ten phrasings. Under §11.2, computability is a property of the question rather than of the prompt, which is why its label must be assigned before execution.
+
+*Open.* Two edges are carried to the v1.4 cycle with the contributor: whether a multi-part prompt requiring several derivations is one question or several, and how §11.1's minimum of 40 then counts; and whether a question with an identical derivation but a different pressure ladder is the same item under D1 and a different one under D4.
+
+**v1.4 defines "question" and question identity as above, with the two open edges resolved before adoption.**
+
+---
+
+## GH-5 · The implicit i.i.d. assumption in D7.5 — Steven Lewis
+
+**ACCEPTED.**
+
+D7.5's Clopper–Pearson bounds assume independent, identically distributed observations. Across questions the identical-distribution assumption does not hold, and within a question independence is not established.
+
+**Proposed:** specify interval methods that do not rely on the i.i.d. assumption.
+
+**Accepted, and the publisher's own published figures confirm it.** The instrument smoke test behind FINDINGS.md reports 92 non-invocations in 500 executions under instruction removal: 48 of 50 on one item, 44 of 50 on another, and none on the other eight. Under a common rate of 0.184, the first item's result has a probability of about 4 × 10⁻³³. The executions are therefore not identically distributed, and the pooled 18.4% is a marginal rate over a heterogeneous set, to which a Clopper–Pearson interval does not apply as a binomial interval would.
+
+The zero-failure bounds are affected more. FINDINGS.md reports 0 of 500 base-condition non-invocations with a one-sided 95% upper bound of 0.60%, which assumes 500 independent trials. The same zero over 50 repeats of one item gives 5.82%; treating the item as the only independent unit gives 25.89%. **The published bounds are narrower than the data supports, by at least a factor of ten.** These figures come from an instrument smoke test, not a conformant evaluation, as the run artefact itself declares.
+
+Within a question, D2.2's batch-invariance requirement removes one dependence mechanism but does not establish independence, and nothing in the published runs measured it.
+
+**v1.4 direction:** intervals are reported where the assumption is defensible — within a question — and pooled rates carry their per-question decomposition in place of an interval. Cluster bootstrap, beta-binomial and design-effect corrections are each defensible and each would need justifying; v1.4 specifies the method rather than assuming one. This revises the method adopted under C-1, and depends on the definition of a question adopted under GH-4.
+
+**v1.4 revises D7.5 accordingly, and the FINDINGS.md bounds are corrected by addition as narrower than the data supports.**
 
 ---
 
