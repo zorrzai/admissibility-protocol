@@ -376,6 +376,10 @@ Within a question, D2.2's batch-invariance requirement removes one dependence me
 
 **v1.4 revises D7.5 accordingly, and the FINDINGS.md bounds are corrected by addition as narrower than the data supports.**
 
+**Correction by addition - 3 October 2026.** The paragraph above states that the published bounds are narrower than the data supports "by at least a factor of ten". The ratio is smaller than ten. The per-item bound over 50 repeats divided by the per-execution bound over 500 executions is 5.8155% / 0.5974% = **9.74** (unrounded: 0.0581551 / 0.0059736 = 9.735; from the rounded figures quoted above, 5.82% / 0.60% = 9.70). Treating the item as the only independent unit gives 25.89% / 0.60%, a ratio of 43.3. For "by at least a factor of ten" read "by about ten times". The finding, the acceptance and the v1.4 direction are unchanged.
+
+Computation: `python -c "a=1-0.05**(1/500); b=1-0.05**(1/50); c=1-0.05**(1/10); print(a, b, c, b/a, c/a)"` prints `0.005973551516349596 0.058155079116972264 0.2588655508930523 9.735427736381274 43.3352839068246`.
+
 ---
 
 ## Received after the window closed
