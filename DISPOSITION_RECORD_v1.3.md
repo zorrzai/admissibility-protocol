@@ -378,5 +378,25 @@ Within a question, D2.2's batch-invariance requirement removes one dependence me
 
 ---
 
+## Received after the window closed
+
+*Recorded 3 October 2026.*
+
+One comment was received after the window closed on 30 September 2026. It is not dispositioned in this record. It is carried into the v1.4 cycle, to be dispositioned there on the same terms as any other comment.
+
+---
+
+## GH-6 · Adopt "unsourced" in place of "originated" — Lukas Mandrake
+
+**Received:** 1 October 2026, 03:48 UTC, as issue #6 on the public repository (https://github.com/zorrzai/admissibility-protocol/issues/6), filed by Lukas Mandrake (GitHub: Lmandrake), who consented to be named in this record.
+
+**Disclosure.** Lukas Mandrake is a co-CTO of Certanum Technologies Inc., which develops commercial products intended to be consistent with AP-1. As for GH-2 to GH-5, his comment is dispositioned on the same terms as any other and carries no privilege.
+
+**The comment.** It proposes that v1.4 adopt *unsourced* for the property the standard calls *originated*, across §2.1 and its dependent uses, D7.2(a) and `OPERAND-ORIGINATED`, the §6.8 outcome vocabulary, D3's `FABRICATED PROVENANCE` label and the `FABRICATED` scoring label of the sealed evaluation set. It further proposes that the normative uses of *fabricated* move with the rename, and that the rename land in the same edit as the §6.8 definition fix already adopted under C-14.
+
+**Status: NOT DISPOSITIONED — arrived after the window closed.** Carried to the v1.4 cycle.
+
+---
+
 *Opened 8 August 2026 · Window closes 30 September 2026 · Resolution in AP-1 v1.4*
 *ZORRZ Financial Inc. · mrupp@zorrz.com*
